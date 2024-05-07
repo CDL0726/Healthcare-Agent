@@ -161,7 +161,7 @@ ssh -CNg -L 7860:127.0.0.1:7860 -L 23333:127.0.0.1:23333 root@ssh.intern-ai.org.
 
 |LMDeploy|Lagent Web Demo|
 |---|---|
-|![](./Agent10.1.png)|![](./Agent10.1.png)|   
+|![](./Agent10.1.png)|![](./Agent10.2.png)|   
 
 接下来在本地的浏览器页面中打开 `http://localhost:7860` 以使用 Lagent Web Demo。首先输入模型 IP 为 `127.0.0.1:23333`，在输入完成后按下回车键以确认。
 
