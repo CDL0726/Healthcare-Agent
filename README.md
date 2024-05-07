@@ -102,6 +102,7 @@ git clone https://gitee.com/internlm/lagent.git
 cd lagent && git checkout 581d9fb && pip install -e . && cd ..
 git clone https://gitee.com/internlm/agentlego.git
 cd agentlego && git checkout 7769e0d && pip install -e . && cd ..
+```
 
 5.1.3 安装其他依赖   
 
