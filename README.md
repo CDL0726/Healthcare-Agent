@@ -20,7 +20,8 @@ GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易
 [源码地址-洪图-2024.4](https://github.com/NagatoYuki0943/HealthcareAgent/blob/main/LLM.py)
 [Agent](https://github.com/CDL0726/InternLM2-Tutorial-Assignment-Lecture6-Lagent/edit/main/README.md)    
 
-论文：
+论文：    
+
 [Agent-FLAN 技术报告](https://arxiv.org/abs/2403.12881)    
 [Repo](https://github.com/InternLM/Agent-FLAN)  
 
@@ -124,4 +125,58 @@ git clone -b camp2 https://gitee.com/internlm/Tutorial.git
 
 ###  5.2 Lagent：轻量级智能体框架
  
+在这一部分中，将体验 Lagent 的 Web Demo，使用 Lagent 自定义工具，并体验自定义工具的效果。    
 
+详细文档可以访问：[Lagent：轻量级智能体框架](https://github.com/InternLM/Tutorial/blob/camp2/agent/lagent.md)    
+
+5.2.1 Lagent Web Demo    
+
+5.2.1.1 使用 LMDeploy 部署    
+
+由于 Lagent 的 Web Demo 需要用到 LMDeploy 所启动的 api_server，因此我们首先按照下图指示在 vscode terminal 中执行如下代码使用 LMDeploy 启动一个 api_server。    
+
+```
+conda activate agent
+lmdeploy serve api_server /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b \
+                            --server-name 127.0.0.1 \
+                            --model-name internlm2-chat-7b \
+                            --cache-max-entry-count 0.1
+```
+
+5.2.1.2 启动并使用 Lagent Web Demo    
+
+接下来我们按照下图指示新建一个 terminal 以启动 Lagent Web Demo。在新建的 terminal 中执行如下指令：    
+
+```
+conda activate agent
+cd /root/agent/lagent/examples
+streamlit run internlm2_agent_web_demo.py --server.address 127.0.0.1 --server.port 7860
+```
+
+在等待 LMDeploy 的 api_server 与 Lagent Web Demo 完全启动后（如下图所示），在本地进行端口映射，将 LMDeploy api_server 的23333端口以及 Lagent Web Demo 的7860端口映射到本地。可以执行：
+
+```
+ssh -CNg -L 7860:127.0.0.1:7860 -L 23333:127.0.0.1:23333 root@ssh.intern-ai.org.cn -p 44315
+```
+
+|LMDeploy|Lagent Web Demo|
+|---|---|
+|![](./Agent10.1.png)|![](./Agent10.1.png)|   
+
+接下来在本地的浏览器页面中打开 `http://localhost:7860` 以使用 Lagent Web Demo。首先输入模型 IP 为 `127.0.0.1:23333`，在输入完成后按下回车键以确认。
+
+可以在Web端与模型进行对话。     
+
+选择插件为 `ArxivSearch`，以让模型获得在 arxiv 上搜索论文的能力。    
+
+![](./Agent11.1.png)
+
+我们输入“请帮我搜索 InternLM2 Technical Report” 以让模型搜索书生·浦语2的技术报告。效果如下图所示，可以看到模型正确输出了 InternLM2 技术报告的相关信息。尽管还输出了其他论文，但这是由 arxiv 搜索 API 的相关行为导致的。    
+
+![](./Agent11.2.png)     
+
+还可以直接上传PDF压缩文件，然后让智能根据上传的文件来回答问题，并列出回答所引用的资料，效果如下：
+
+![](./Agent11.3.png)  
+
+### 5.3 AgentLego：组装智能体“乐高”  
