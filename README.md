@@ -179,4 +179,89 @@ ssh -CNg -L 7860:127.0.0.1:7860 -L 23333:127.0.0.1:23333 root@ssh.intern-ai.org.
 
 ![](./Agent11.3.png)  
 
-### 5.3 AgentLego：组装智能体“乐高”  
+### 5.3 AgentLego：医疗保健智能体“乐高”组装      
+
+在这一部分中，我们将直接使用 AgentLego 工具，体验 AgentLego 的 WebUI，以及基于 AgentLego 自定义工具并体验自定义工具的效果。     
+
+详细文档可以访问：[AgentLego：组装智能体“乐高”](https://github.com/InternLM/Tutorial/blob/camp2/agent/agentlego.md)      
+
+
+5.3.2 AgentLego作为智能体工具使用    
+
+5.3.2.1 使用 LMDeploy 部署    
+
+由于 AgentLego 的 WebUI 需要用到 LMDeploy 所启动的 api_server，因此我们首先按照下图指示在 vscode terminal 中执行如下代码使用 LMDeploy 启动一个 api_server。    
+
+```
+conda activate agent
+lmdeploy serve api_server /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b \
+                            --server-name 127.0.0.1 \
+                            --model-name internlm2-chat-7b \
+                            --cache-max-entry-count 0.1
+```
+
+5.3.2.2 启动 AgentLego WebUI    
+
+接下来我们按照下图指示新建一个 terminal 以启动 AgentLego WebUI。在新建的 terminal 中执行如下指令：    
+
+```
+conda activate agent
+cd /root/agent/agentlego/webui
+python one_click.py
+```
+
+在等待 LMDeploy 的 api_server 与 AgentLego WebUI 完全启动后（如下图所示），在本地进行端口映射，将 LMDeploy api_server 的23333端口以及 AgentLego WebUI 的7860端口映射到本地。可以执行：   
+
+```
+ssh -CNg -L 7860:127.0.0.1:7860 -L 23333:127.0.0.1:23333 root@ssh.intern-ai.org.cn -p 44315
+```
+
+|LMDeploy api_server|AgentLego WebUI|
+|---|---|   
+|![](./Agent14.2.png) |![](./Agent14.3.png) |      
+
+
+5.3.2.3 使用 AgentLego WebUI      
+
+接下来在本地的浏览器页面中打开 http://localhost:7860 以使用 AgentLego WebUI。首先来配置 Agent，如下图所示。    
+
+  1.点击上方 Agent 进入 Agent 配置页面。（如①所示）
+  2.点击 Agent 下方框，选择 New Agent。（如②所示）    
+  3.选择 Agent Class 为 lagent.InternLM2Agent。（如③所示）    
+  4.输入模型 URL 为 http://127.0.0.1:23333 。（如④所示）    
+  5.输入 Agent name，自定义即可，图中输入了 internlm2。（如⑤所示）    
+  6.点击 save to 以保存配置，这样在下次使用时只需在第2步时选择 Agent 为 internlm2 后点击 load 以加载就可以了。（如⑥所示）    
+  7.点击 load 以加载配置。（如⑦所示）    
+
+  ![](./Agent14.4.1.png) 
+
+
+然后配置工具OCR，
+在Vscode 里打开新的Terminal, 运行下列命令安装OCR：    
+
+```
+conda activate agent
+pip install easyocr
+```
+
+如下图所示。    
+
+  1. 点击上方 Tools 页面进入工具配置页面。（如①所示）
+  2. 点击 Tools 下方框，选择 New Tool 以加载新工具。（如②所示）
+  3. 选择 Tool Class 为 OCR。（如③所示）
+  4. 点击 save 以保存配置，这一步会需要较长时间，耐心等待。（如④所示）
+
+![](./healthcare-agent1.png)    
+
+等待工具加载完成后，点击上方 Chat 以进入对话页面,效果如下图：   
+
+![](./healthcare-agent2.png)  
+
+
+## 6. 进一步完善点：
+
+- 医疗数据整理；
+- 技术路演图绘制；
+- OCR的识别精准提升，特别是文字部分；
+- 自定义链接工具，如医疗机构推荐      
+
