@@ -81,11 +81,7 @@ mkdir -p /root/agent
 开始配置 conda 环境，可以输入如下指令： 
 ```
 studio-conda -t agent -o pytorch-2.1.2
-```
-
-显示下图就是初始化环境成功了。  
-
-![](./Agent9.png)        
+```     
 
 5.1.2 安装 Lagent 和 AgentLego    
 
