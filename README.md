@@ -29,10 +29,10 @@ GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易
 一个智能体需要满足以下3个条件：     
 
 1. Perception of dynamic conditions in the environment
-  可以感知环境中的动态条件。
+   可以感知环境中的动态条件。
 
 2. Action to affect conditions in the environment
-  能采取动作影响环境。
+   能采取动作影响环境。
 
 3. Reasoning to interpret perceptions, solve problems, draw inferences, and determine actions.   
    能运用推理能力理解信息、解决问题，产生推断、决定动作。
