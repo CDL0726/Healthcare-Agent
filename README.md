@@ -255,3 +255,4 @@ pip install easyocr
 - OCR的识别精准提升，特别是文字部分；
 - 自定义链接工具，如医疗机构推荐      
 
+![](./healthcare-agent5.png)     
