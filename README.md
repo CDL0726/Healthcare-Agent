@@ -249,11 +249,38 @@ pip install easyocr
 
 ![](./healthcare-agent2.png)  
 
+## 6. 模型微调 XTuner
 
-## 6. 进一步完善点：
+### 6.1 开发机准备    
+
+使用 `Cuda11.7-conda` 镜像，然后在资源配置中，使用 `10% A100 * 1` 的选项，创建开发机器。
+
+### 6.2 XTuner 模型微调
+
+6.2.1 环境安装   
+
+- 安装一个 XTuner：`studio-conda xtuner0.1.17`
+- 激活环境: `conda activate xtuner0.1.17`
+- 进入家目录: `cd ~`
+- 创建版本文件夹并进入: `mkdir -p /root/xtuner0117 && cd /root/xtuner0117`
+- 拉取 0.1.17 的版本源码:  `git clone -b v0.1.17  https://github.com/InternLM/xtuner`
+- 进入源码目录: ` cd /root/xtuner0117/xtuner`
+- 从源码安装 XTuner: `pip install -e '.[all]'`
+
+6.2.2 前期准备
+
+6.2.2.1 数据集准备
+
+
+
+### 6.3 模型转换、整合、测试及部署   
+
+
+
+## 7. 进一步完善点：
 
 - 医疗数据整理；
-- 技术路演图绘制；
+- 技术路线图绘制；
 - OCR的识别精准提升，特别是文字部分；
 - 自定义链接工具，如医疗机构推荐      
 
