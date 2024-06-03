@@ -11,7 +11,7 @@ GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易
    
 ## 2. Healthcare-Agent 医疗保健智能体 主要功能：  
   - 智能问答 (AI Health Bot)
-  - 数据分析（Healthcare Textract）
+  - 报告分析（Healthcare Textract）
   - CVD慢病管理 (MMPose)
     
 ## 3. 智能体调用的模型与工具
