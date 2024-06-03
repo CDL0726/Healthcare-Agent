@@ -9,12 +9,11 @@ GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易
 
 [InternLM2 模型地址]( https://openxlab.org.cn/models/detail/OpenLMLab/internlm2-chat-7b)   
    
-## 2. HealthcareAgent 医疗保健智能体 主要功能：  
-  - 智能问答
-  - CVD(心血管）慢病管理
-  - 数据分析（报告解读及对比分析）
-
-
+## 2. Healthcare-Agent 医疗保健智能体 主要功能：  
+  - 智能问答 (AI Health Bot)
+  - 数据分析（Healthcare Textract）
+  - CVD慢病管理 (MMPose)
+    
 ## 3. 智能体调用的模型与工具
 [InternLM2](https://github.com/InternLM/InternLM)    
 [Lagent](https://github.com/InternLM/Lagent)   
