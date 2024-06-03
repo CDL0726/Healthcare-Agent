@@ -390,7 +390,7 @@ lmdeploy chat /root/internlm2-chat-1_8b-4bit --model-format awq
 
 看下面一张架构图：
 
-![](./healthcare-agent1.png)   
+![](./healthcare-agent6.png)   
 
 把从架构上把整个服务流程分成下面3个模块。
 
