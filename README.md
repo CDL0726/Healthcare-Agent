@@ -1,6 +1,6 @@
 # Healthcare-Agent 医疗保健智能体
 
-![](./healthcare-agent4.png)    
+![](./healthcare-agent7.png)    
 
 ## 1. 项目介绍 
 GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易懂化的解读，为家庭健康决策人提供全寿命周期的健康管理大语言模型智能体，成为陪伴用户一生的健康伴侣。
@@ -390,7 +390,7 @@ lmdeploy chat /root/internlm2-chat-1_8b-4bit --model-format awq
 
 看下面一张架构图：
 
-![](./healthcareagent1.png)   
+![](./healthcare-agent1.png)   
 
 把从架构上把整个服务流程分成下面3个模块。
 
