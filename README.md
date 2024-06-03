@@ -6,6 +6,8 @@
 GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易懂化的解读，为家庭健康决策人提供全寿命周期的健康管理大语言模型智能体，成为陪伴用户一生的健康伴侣。
 
 [OpenXLab体验](https://openxlab.org.cn/apps/detail/NagatoYuki0943/HealthcareAgent) 
+
+[InternLM2 模型地址]( https://openxlab.org.cn/models/detail/OpenLMLab/internlm2-chat-7b)   
    
 ## 2. HealthcareAgent 医疗保健智能体 主要功能：  
   - 智能问答
@@ -275,13 +277,178 @@ pip install easyocr
 
 ### 6.3 模型转换、整合、测试及部署   
 
+## 7. 安装、部署、量化       
 
+### 7.1 LMDeploy环境部署    
 
-## 7. 进一步完善点：
+7.1.1 创建conda环境 InternStudio上提供了快速创建conda环境的方法。打开命令行终端，创建一个名为lmdeploy的环境：
+```
+studio-conda -t lmdeploy -o pytorch-2.1.2
+```
 
-- 医疗数据整理；
-- 技术路线图绘制；
-- OCR的识别精准提升，特别是文字部分；
-- 自定义链接工具，如医疗机构推荐      
+7.1.2 安装LMDeploy
+激活刚刚创建的虚拟环境:   
+```
+conda activate lmdeploy
+```
+安装0.3.0版本的lmdeploy:   
+```
+pip install lmdeploy[all]==0.3.0
+```
+
+### 7.2 LMDeploy模型对话(chat)    
+
+7.2.1 Huggingface与TurboMind    
+
+**HuggingFace**
+
+HuggingFace是一个高速发展的社区，包括Meta、Google、Microsoft、Amazon在内的超过5000家组织机构在为HuggingFace开源社区贡献代码、数据集和模型。可以认为是一个针对深度学习模型和数据集的在线托管社区，如果你有数据集或者模型想对外分享，网盘又不太方便，就不妨托管在HuggingFace.
+
+托管在HuggingFace社区的模型通常采用HuggingFace格式存储，简写为**HF格式**。
+
+但是HuggingFace社区的服务器在国外，国内访问不太方便。国内可以使用阿里巴巴的MindScope社区，或者上海AI Lab搭建的OpenXLab社区，上面托管的模型也通常采用**HF格式**。    
+
+**TurboMind**
+
+TurboMind是LMDeploy团队开发的一款关于LLM推理的高效推理引擎，它的主要功能包括：LLaMa 结构模型的支持，continuous batch 推理模式和可扩展的 KV 缓存管理器。    
+
+TurboMind推理引擎仅支持推理TurboMind格式的模型。因此，TurboMind在推理HF格式的模型时，会首先自动将HF格式模型转换为TurboMind格式的模型。**该过程在新版本的LMDeploy中是自动进行的，无需用户操作**。
+
+几个容易迷惑的点：    
+
+- TurboMind与LMDeploy的关系：LMDeploy是涵盖了LLM 任务全套轻量化、部署和服务解决方案的集成功能包，TurboMind是LMDeploy的一个推理引擎，是一个子模块。LMDeploy也可以使用pytorch作为推理引擎。
+- TurboMind与TurboMind模型的关系：TurboMind是推理引擎的名字，TurboMind模型是一种模型存储格式，TurboMind引擎只能推理TurboMind格式的模型。
+
+7.2.2 下载模型    
+
+执行如下指令：`cd ~`    
+然后执行如下指令由开发机的共享目录软链接或拷贝模型：    
+```
+ln -s /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b /root/
+# cp -r /root/share/new_models/Shanghai_AI_Laboratory/internlm2-chat-7b /root/
+```
+
+7.2.3 使用LMDeploy与模型对话   
+
+首先激活创建好的conda环境：   
+```
+conda activate lmdeploy
+```
+
+使用LMDeploy与模型进行对话的通用命令格式为：   
+```
+lmdeploy chat [HF格式模型路径/TurboMind格式模型路径]
+```
+
+例如，您可以执行如下命令运行下载的7B模型：
+```
+lmdeploy chat /root/internlm2-chat-7b
+```
+
+### 7.3  LMDeploy模型量化(lite)    
+
+LMDeploy使用AWQ算法，实现模型4bit权重量化。推理引擎TurboMind提供了非常高效的4bit推理cuda kernel，性能是FP16的2.4倍以上。它支持以下NVIDIA显卡：
+
+- 图灵架构（sm75）：20系列、T4
+- 安培架构（sm80,sm86）：30系列、A10、A16、A30、A100
+- Ada Lovelace架构（sm90）：40 系列
+
+运行前，首先安装一个依赖库。   
+```
+pip install einops==0.7.0
+```
+
+仅需执行一条命令，就可以完成模型量化工作。   
+```
+lmdeploy lite auto_awq \
+   /root/internlm2-chat-7b \
+  --calib-dataset 'ptb' \
+  --calib-samples 128 \
+  --calib-seqlen 1024 \
+  --w-bits 4 \
+  --w-group-size 128 \
+  --work-dir /root/internlm2-chat-7b-4bit
+```
+
+运行时间较长，请耐心等待。量化工作结束后，新的HF模型被保存到internlm2-chat-7b-4bit目录。
+
+运行ls 可以查看已经量化好的模型`internlm2-chat-7b-4bit`
+
+使用Chat功能运行W4A16量化后的模型。
+```
+lmdeploy chat /root/internlm2-chat-1_8b-4bit --model-format awq
+```
+
+### 7.4 LMDeploy服务(serve)    
+
+开发时我们通常都是在本地直接推理大模型，这种方式成为本地部署。
+
+在生产环境下，我们有时会将大模型封装为API接口服务，供客户端访问。
+
+看下面一张架构图：
+
+![](./healthcareagent1.png)   
+
+把从架构上把整个服务流程分成下面3个模块。
+
+- Model Inference/Server 模型推理/服务。主要提供模型本身的推理，一般来说可以和具体业务解耦，专注模型推理本身性能的优化。可以以模块、API等多种方式提供。
+- API Server。中间协议层，把后端推理/服务通过HTTP，gRPC或其他形式的接口，供前端调用。
+- Client。可以理解为前端，与用户交互的地方。通过通过网页端/命令行去调用API接口，获取模型推理/服务。
+
+7.4.1 启动API服务器
+
+通过以下命令启动API服务器，推理internlm2-chat-7b模型：
+```
+lmdeploy serve api_server \
+    /root/internlm2-chat-7b \
+    --model-format hf \
+    --quant-policy 0 \
+    --server-name 0.0.0.0 \
+    --server-port 23333 \
+    --tp 1
+```
+
+**用命令行客户端与模型对话**
+
+在上面，我们在终端里新开了一个API服务器。
+
+我们要新建一个命令行客户端去连接API服务器。 首先通过VS Code新建一个终端，
+然后激活conda环境conda activate lmdeploy 运行命令行客户端：
+```
+lmdeploy serve api_client http://localhost:23333
+```
+
+运行后，可以通过命令行窗口直接与模型对话：
+
+**用Gradio网页客户端与模型对话**
+
+关闭刚刚的VSCode终端，但服务器端的终端不要关闭。
+新建一个VSCode终端，激活conda环境 conda activate lmdeploy。
+使用Gradio作为前端，启动网页客户端。
+```
+lmdeploy serve gradio http://localhost:23333 \
+    --server-name 0.0.0.0 \
+    --server-port 6006
+```
+
+运行命令后，网页客户端启动。在windows电脑本地新建一个powershell终端，新开一个转发端口：
+
+```
+ssh -CNg -L 6006:127.0.0.1:6006 root@ssh.intern-ai.org.cn -p 42978
+```
+
+打开浏览器，访问地址`http://0.0.0.0:6006`
+
+**将 LMDeploy Web Demo 部署到 OpenXLab** 
+
+OpenXLab部署地址：https://openxlab.org.cn/apps/detail/NagatoYuki0943/HealthcareAgent
+
+## 8. 特别鸣谢：
+
+- 上海人工智能实验室 提供A100算力支持
+- 书生·浦语 实战营 
+- 浦语小助手
+- Healthcare-Agent 项目小组成员
+    Wang Jian, Grace, Li Hongtu, Zen Huafu, Jiang Jian, Zan Yalan, Lin Guocheng, Aurora, Dennis       
 
 ![](./healthcare-agent5.png)     
