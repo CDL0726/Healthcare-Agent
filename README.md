@@ -5,7 +5,7 @@
 ## 1. 项目介绍 
 GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易懂化的解读，为家庭健康决策人提供全寿命周期的健康管理大语言模型智能体，成为陪伴用户一生的健康伴侣。
 
-[OpenXLab体验](https://openxlab.org.cn/apps/detail/NagatoYuki0943/HealthcareAgent) 
+[OpenXLab 部署地址](https://openxlab.org.cn/apps/detail/NagatoYuki0943/HealthcareAgent) 
 
 [InternLM2 模型地址]( https://openxlab.org.cn/models/detail/OpenLMLab/internlm2-chat-7b)   
    
