@@ -446,7 +446,7 @@ ssh -CNg -L 6006:127.0.0.1:6006 root@ssh.intern-ai.org.cn -p 42978
 
 OpenXLab部署地址：https://openxlab.org.cn/apps/detail/NagatoYuki0943/HealthcareAgent
 
-## 8. 特别鸣谢：
+## 8. 致谢
 
 - 上海人工智能实验室 提供A100算力支持
 - 书生·浦语 实战营 
