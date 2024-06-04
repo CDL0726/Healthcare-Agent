@@ -451,7 +451,6 @@ OpenXLab部署地址：https://openxlab.org.cn/apps/detail/NagatoYuki0943/Health
 - 上海人工智能实验室 提供A100算力支持
 - 书生·浦语 实战营 
 - 浦语小助手
-- Healthcare-Agent 项目小组成员
-      Wang Jian, Grace, Li Hongtu, Zen Huafu, Jiang Jian, Zan Yalan, Lin Guocheng, Aurora, Dennis       
+       
 
 ![](./healthcare-agent5.png)     
