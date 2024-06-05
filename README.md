@@ -437,7 +437,7 @@ lmdeploy serve gradio http://localhost:23333 \
 运行命令后，网页客户端启动。在windows电脑本地新建一个powershell终端，新开一个转发端口：
 
 ```
-ssh -CNg -L 6006:127.0.0.1:6006 root@ssh.intern-ai.org.cn -p 42978
+ssh -CNg -L 6006:127.0.0.1:6006 root@ssh.intern-ai.org.cn -p 49686
 ```
 
 打开浏览器，访问地址`http://0.0.0.0:6006`
