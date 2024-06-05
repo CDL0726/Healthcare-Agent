@@ -25,7 +25,7 @@ GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易
 [源码地址-洪图-2024.4](https://github.com/NagatoYuki0943/HealthcareAgent/blob/main/LLM.py)   
 [Healthcare-Agent](https://github.com/CDL0726/Healthcare-Agent/edit/main/README.md)    
 
-论文： 
+论文：       
 [Agent-FLAN 技术报告](https://arxiv.org/abs/2403.12881)     
 [Repo](https://github.com/InternLM/Agent-FLAN)  
 
