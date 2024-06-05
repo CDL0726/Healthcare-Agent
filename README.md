@@ -5,21 +5,23 @@
 ## 1. 项目介绍 
 GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易懂化的解读，为家庭健康决策人提供全寿命周期的健康管理大语言模型智能体，成为陪伴用户一生的健康伴侣。
 
-[OpenXLab 部署地址](https://openxlab.org.cn/apps/detail/NagatoYuki0943/HealthcareAgent) 
-
-[InternLM2 模型地址]( https://openxlab.org.cn/models/detail/OpenLMLab/internlm2-chat-7b)   
-   
+[项目Demo地址]https://openxlab.org.cn/apps/detail/NagatoYuki0943/HealthcareAgent) 
+ 
 ## 2. Healthcare-Agent 医疗保健智能体 主要功能：  
   - 智能问答 (AI Health Bot)
   - 报告分析（Healthcare Textract）
   - CVD慢病管理 (MMPose)
     
-## 3. 智能体调用的模型与工具
-[InternLM2](https://github.com/InternLM/InternLM)    
+## 3. 智能体调用的模型与工具    
+
+模型地址： [InternLM2](https://github.com/InternLM/InternLM)   
+
+智能体工具： 
 [Lagent](https://github.com/InternLM/Lagent)   
 [AgentLego](https://github.com/InternLM/AgentLego) 
 
-[开源代码](https://open-compass.github.io/T-Eval/)     [项目主页](open-compass.github.io/T-Eval)    
+[开源代码](https://open-compass.github.io/T-Eval/)       
+[项目主页](open-compass.github.io/T-Eval)    
   
 [源码地址-洪图-2024.4](https://github.com/NagatoYuki0943/HealthcareAgent/blob/main/LLM.py)   
 [Healthcare-Agent](https://github.com/CDL0726/Healthcare-Agent/edit/main/README.md)    
