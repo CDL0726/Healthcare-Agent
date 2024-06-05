@@ -16,7 +16,7 @@ GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易
 
 模型地址： [InternLM2](https://github.com/InternLM/InternLM)   
 
-智能体工具： 
+智能体工具：    
 [Lagent](https://github.com/InternLM/Lagent)   
 [AgentLego](https://github.com/InternLM/AgentLego) 
 
