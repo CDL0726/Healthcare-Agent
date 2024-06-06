@@ -16,9 +16,7 @@ GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易
 
 ![](./healthcare-agent8.png)     
 
-模型地址[InternLM2](https://github.com/InternLM/InternLM)    智能体工具[Lagent](https://github.com/InternLM/Lagent)     [AgentLego](https://github.com/InternLM/AgentLego)      [开源代码](https://open-compass.github.io/T-Eval/)    [项目主页](open-compass.github.io/T-Eval)      
-[源码地址-洪图-2024.4](https://github.com/NagatoYuki0943/HealthcareAgent/blob/main/LLM.py)    论文 [Agent-FLAN 技术报告](https://arxiv.org/abs/2403.12881)     
-[Repo](https://github.com/InternLM/Agent-FLAN)  
+模型地址[InternLM2](https://github.com/InternLM/InternLM)    智能体工具[Lagent](https://github.com/InternLM/Lagent)     [AgentLego](https://github.com/InternLM/AgentLego)      [开源代码](https://open-compass.github.io/T-Eval/)    [项目主页](open-compass.github.io/T-Eval)[源码地址-洪图-2024.4](https://github.com/NagatoYuki0943/HealthcareAgent/blob/main/LLM.py)    论文 [Agent-FLAN 技术报告](https://arxiv.org/abs/2403.12881)  [Repo](https://github.com/InternLM/Agent-FLAN)  
 
       
 ## 4. 智能体介绍    
