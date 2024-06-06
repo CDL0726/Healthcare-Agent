@@ -12,9 +12,10 @@ GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易
   - 报告分析（Healthcare Textract）
   - CVD慢病管理 (MMPose)
     
-## 3. 智能体调用的模型与工具    
+## 3. 智能体调用的模型、工具和参考论文    
 
-模型地址： [InternLM2](https://github.com/InternLM/InternLM)   
+模型地址：     
+[InternLM2](https://github.com/InternLM/InternLM)   
 
 智能体工具：    
 [Lagent](https://github.com/InternLM/Lagent)   
