@@ -1,6 +1,6 @@
 # Healthcare-Agent 医疗保健智能体
 
-![](./healthcare-agent4.png)    
+![](./healthcare-agent5.png)     
 
 ## 1. 项目介绍 
 GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易懂化的解读，为家庭健康决策人提供全寿命周期的健康管理大语言模型智能体，成为陪伴用户一生的健康伴侣。
@@ -449,9 +449,9 @@ OpenXLab部署地址：https://openxlab.org.cn/apps/detail/NagatoYuki0943/Health
 
 ## 8. 致谢
 
-- 上海人工智能实验室 提供A100算力支持
-- 书生·浦语 实战营 
+- 上海人工智能实验室
+- 书生·浦语 实战营
 - 浦语小助手
        
 
-![](./healthcare-agent5.png)     
+![](./internlm2.png)     
