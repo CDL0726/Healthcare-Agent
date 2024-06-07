@@ -3,9 +3,7 @@
 ![](./healthcare-agent5.png)     
 
 ## 1. 项目介绍 
-GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易懂化的解读，为家庭健康决策人提供全寿命周期的健康管理大语言模型智能体，成为陪伴用户一生的健康伴侣。
-
-[项目Demo地址](https://openxlab.org.cn/apps/detail/NagatoYuki0943/HealthcareAgent) 
+GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易懂化的解读，为家庭健康决策人提供全生命周期的健康管理。它将成为您一生的健康伴侣，随时随地守护您的健康。
  
 ## 2. Healthcare-Agent 医疗保健智能体 主要功能：  
   - 智能问答 (AI Health Bot)
@@ -16,7 +14,8 @@ GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易
 
 ![](./healthcare-agent8.png)     
 
-模型地址[InternLM2](https://github.com/InternLM/InternLM)    智能体工具[Lagent](https://github.com/InternLM/Lagent)     [AgentLego](https://github.com/InternLM/AgentLego)      [开源代码](https://open-compass.github.io/T-Eval/)    [项目主页](open-compass.github.io/T-Eval)[源码地址-洪图-2024.4](https://github.com/NagatoYuki0943/HealthcareAgent/blob/main/LLM.py)    论文 [Agent-FLAN 技术报告](https://arxiv.org/abs/2403.12881)  [Repo](https://github.com/InternLM/Agent-FLAN)  
+模型地址[InternLM2](https://github.com/InternLM/InternLM)    [项目Demo地址](https://openxlab.org.cn/apps/detail/NagatoYuki0943/HealthcareAgent)      
+智能体工具[Lagent](https://github.com/InternLM/Lagent)     [AgentLego](https://github.com/InternLM/AgentLego)      [开源代码](https://open-compass.github.io/T-Eval/)    [项目主页](open-compass.github.io/T-Eval)[源码地址-洪图-2024.4](https://github.com/NagatoYuki0943/HealthcareAgent/blob/main/LLM.py)    论文 [Agent-FLAN 技术报告](https://arxiv.org/abs/2403.12881)  [Repo](https://github.com/InternLM/Agent-FLAN)  
 
       
 ## 4. 智能体介绍    
