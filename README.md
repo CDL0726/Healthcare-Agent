@@ -5,7 +5,7 @@
 ## 1. 项目介绍 
 Healthcare-Agent是一个医疗保健智能体，基于GenAI赋能，解读用户的健康密码，根据个性化的数据，生成易懂化的解读，为医疗保健工作者赋能提效，为家庭健康决策人提供全生命周期的健康管理。它将成为您一生的健康伴侣，随时随地守护您的健康。
 
-
+---
 ## 2. 主要功能：  
   - **医疗智能问答 AI Health Bot：** 基于医疗知识的智能问答，有专业溯源依据。
   - **报告分析 Healthcare Textract：** 上传检查报告，AI自动分析，提供白话解读，原因分析和相关建议。
@@ -17,8 +17,9 @@ Healthcare-Agent是一个医疗保健智能体，基于GenAI赋能，解读用�
   
 本文件中的信息仅供学术交流使用。其目的是用于教育和研究，不得用于任何商业或法律目的。作者不保证信息的准确性、完整性或可靠性。本文件中使用的信息和数据，仅用于学术研究目的。这些数据来自公开可用的来源，作者不对数据的所有权或版权提出任何主张。    
 
-Healthcare-Agent是一个医疗保健智能体，可以赋能提效医疗保健从业者，也可以家庭用户提供便捷医疗咨询服务，内容输出是利用大模型的推理能力，不能代替医生，不承担法律责任。
-    
+Healthcare-Agent是一个医疗保健智能体，可以赋能提效医疗保健从业者，也可以家庭用户提供便捷医疗咨询服务。内容输出是利用大模型的推理能力，不能代替医生，不承担法律责任。
+
+---
 ## 3. 架构    
 
 ![](./healthcare-agent8.png)     
@@ -27,6 +28,7 @@ Healthcare-Agent是一个医疗保健智能体，可以赋能提效医疗保健�
 |---|---|---|---|---|---|
 |[InternLM2](https://github.com/InternLM/InternLM)|[Demo](https://openxlab.org.cn/apps/detail/NagatoYuki0943/HealthcareAgent)|[Lagent](https://github.com/InternLM/Lagent) [AgentLego](https://github.com/InternLM/AgentLego) |[T-Eval](https://open-compass.github.io/T-Eval/)| [洪图-2024](https://github.com/NagatoYuki0943/HealthcareAgent/blob/main/LLM.py)|[Agent-FLAN](https://arxiv.org/abs/2403.12881)  [Repo](https://github.com/InternLM/Agent-FLAN) |
       
+---
 ## 4. 智能体介绍    
 
 ### 4.1 什么是智能体    
@@ -118,6 +120,7 @@ cd /root/agent
 git clone -b camp2 https://gitee.com/internlm/Tutorial.git
 ```
 
+---
 ###  5.2 Lagent：轻量级智能体框架
  
 在这一部分中，将体验 Lagent 的 Web Demo，使用 Lagent 自定义工具，并体验自定义工具的效果。    
@@ -152,11 +155,7 @@ streamlit run internlm2_agent_web_demo.py --server.address 127.0.0.1 --server.po
 
 ```
 ssh -CNg -L 7860:127.0.0.1:7860 -L 23333:127.0.0.1:23333 root@ssh.intern-ai.org.cn -p 49686
-```
-
-|LMDeploy|Lagent Web Demo|
-|---|---|
-|![](./Agent10.1.png)|![](./Agent10.2.png)|   
+``` 
 
 接下来在本地的浏览器页面中打开 `http://localhost:7860` 以使用 Lagent Web Demo。首先输入模型 IP 为 `127.0.0.1:23333`，在输入完成后按下回车键以确认。
 
@@ -164,19 +163,13 @@ ssh -CNg -L 7860:127.0.0.1:7860 -L 23333:127.0.0.1:23333 root@ssh.intern-ai.org.
 
 选择插件为 `ArxivSearch`，以让模型获得在 arxiv 上搜索论文的能力。    
 
-![](./Agent11.1.png)
-
-可以左下角的文件上传处，直接上传PDF压缩文件，然后让智能根据上传的文件来回答问题，并列出回答所引用的资料，效果如下：
-
-![](./Agent11.3.png)  
-
+可以左下角的文件上传处，直接上传PDF压缩文件，然后让智能根据上传的文件来回答问题，并列出回答所引用的资料。
 
 ### 5.3 AgentLego：医疗保健智能体“乐高”组装      
 
 在这一部分中，我们将直接使用 AgentLego 工具，体验 AgentLego 的 WebUI，以及基于 AgentLego 自定义工具并体验自定义工具的效果。     
 
 详细文档可以访问：[AgentLego：组装智能体“乐高”](https://github.com/InternLM/Tutorial/blob/camp2/agent/agentlego.md)      
-
 
 5.3.2 AgentLego作为智能体工具使用    
 
@@ -249,6 +242,7 @@ pip install easyocr
 
 ![](./healthcare-agent2.png)  
 
+---
 ## 6. 模型微调 XTuner
 
 ### 6.1 开发机准备    
@@ -271,11 +265,10 @@ pip install easyocr
 
 6.2.2.1 数据集准备
 
-
-
 ### 6.3 模型转换、整合、测试及部署   
 
-## 7. 安装、部署、量化       
+---
+## 7. 安装、量化、部署       
 
 ### 7.1 LMDeploy环境部署    
 
@@ -441,6 +434,7 @@ ssh -CNg -L 6006:127.0.0.1:6006 root@ssh.intern-ai.org.cn -p 49686
 
 OpenXLab部署地址：https://openxlab.org.cn/apps/detail/NagatoYuki0943/HealthcareAgent
 
+---
 ## 8. 致谢
 
 - 上海人工智能实验室
