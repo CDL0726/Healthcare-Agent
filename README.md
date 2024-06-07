@@ -64,7 +64,7 @@ AgentLego 是一个提供了多种开源工具 API 的多模态工具包，旨�
 ![](./Agent7.png)
 
 
-## 5. Healthcare-Agent 医疗保健智能体 应用搭建
+## 5. 应用搭建
 
 ### 5.1 环境配置      
 
